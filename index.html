@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shirly P. Delankawala — Film and Teledrama Director</title>
+  <meta name="description" content="Shirly P. Delankawala is an award-winning Sri Lankan film and teledrama director and producer, and a member of the Board of Directors of the Independent Television Network (ITN).">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#18110C">
+  <meta property="og:site_name" content="Shirly P. Delankawala">
+  <meta property="og:title" content="Shirly P. Delankawala — Film and Teledrama Director">
+  <meta property="og:description" content="Award-winning Sri Lankan film and teledrama director and producer.">
+  <meta property="og:type" content="profile">
+  <!-- After the domain is live, change both image addresses to the full address,
+       e.g. https://www.example.com/assets/img/og-image.jpg -->
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shirly P. Delankawala — Film and Teledrama Director">
+  <meta name="twitter:description" content="Award-winning Sri Lankan film and teledrama director and producer.">
+  <meta name="twitter:image" content="assets/img/og-image.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2318110C'/%3E%3Cpath d='M32 10 50 42H14z' fill='none' stroke='%23EADFCC' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23E2A05B'/%3E%3C/svg%3E">
+  <script>
+    /* Pick the saved theme, or follow the device, before anything paints. */
+    (function () {
+      var t;
+      try { t = localStorage.getItem('spd-theme'); } catch (e) {}
+      if (t !== 'day' && t !== 'night') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'day' : 'night';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shirly P. Delankawala",
+    "jobTitle": "Film and Teledrama Director and Producer",
+    "nationality": "Sri Lankan",
+    "worksFor": { "@type": "Organization", "name": "Independent Television Network (ITN) Sri Lanka" },
+    "award": [
+      "Best Director, State Television Awards 2009 (Handawa)",
+      "Best TV Series, State Television Awards 2009 (Handawa)",
+      "Jury's Special Award for Best Direction, Sumathi Awards 2009 (Handawa)"
+    ],
+    "email": "mailto:shirly.film@gmail.com",
+    "sameAs": [
+      "https://www.facebook.com/ShirlyP.Delankawala",
+      "https://www.instagram.com/shirlypdel/",
+      "https://www.linkedin.com/in/shirly-p-delankawala-64173052/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+
+  <!-- Loader: film leader countdown, then the iris opens -->
+  <div class="leader" id="leader" aria-hidden="true">
+    <div class="leader__frame">
+      <svg class="leader__dial" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="92" class="leader__ring"/>
+        <circle cx="100" cy="100" r="74" class="leader__ring leader__ring--thin"/>
+        <path class="leader__sweep" d="M100 100 L100 8 A92 92 0 0 1 100 8 Z"/>
+        <line x1="0" y1="100" x2="200" y2="100" class="leader__cross"/>
+        <line x1="100" y1="0" x2="100" y2="200" class="leader__cross"/>
+      </svg>
+      <span class="leader__num" id="leaderNum">3</span>
+    </div>
+    <p class="leader__hint" id="leaderHint">Click to skip</p>
+  </div>
+  <canvas class="iris" id="iris" aria-hidden="true"></canvas>
+  <div class="flash" id="flash" aria-hidden="true"></div>
+
+  <!-- Viewfinder chrome -->
+  <div class="finder" aria-hidden="true">
+    <span class="finder__c finder__c--tl"></span><span class="finder__c finder__c--tr"></span>
+    <span class="finder__c finder__c--bl"></span><span class="finder__c finder__c--br"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="bar" id="bar">
+    <a class="bar__mark" href="#top" data-nav aria-label="Shirly P. Delankawala, back to top">
+      <svg viewBox="0 0 40 40" class="bar__logo" aria-hidden="true"><circle cx="20" cy="20" r="18.5"/><path d="M20 6.5 31.7 26.75H8.3Z"/><circle cx="20" cy="20" r="4.2" class="bar__logo-dot"/></svg>
+      <span class="bar__name">Shirly P. Delankawala</span>
+    </a>
+    <nav class="bar__nav" aria-label="Main">
+      <a href="#work" data-nav>Work</a>
+      <a href="#recognition" data-nav>Recognition</a>
+      <a href="#about" data-nav>About</a>
+      <a href="#contact" data-nav>Contact</a>
+    </nav>
+    <div class="bar__tools">
+      <button class="tool tool--sound" id="soundToggle" type="button" aria-pressed="false" aria-label="Turn sound on">
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="tool__label">Sound</span>
+      </button>
+      <button class="tool tool--theme" id="themeToggle" type="button" aria-label="Switch to day mode">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="tool__sun"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="tool__moon"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1Z"/></svg>
+      </button>
+      <button class="tool tool--menu" id="menuToggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <span class="bar__progress" aria-hidden="true"></span>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="#work" data-nav>Work</a>
+      <a href="#recognition" data-nav>Recognition</a>
+      <a href="#about" data-nav>About</a>
+      <a href="#career" data-nav>Career</a>
+      <a href="#television" data-nav>Television</a>
+      <a href="#contact" data-nav>Contact</a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__stage">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <canvas class="hero__lens" id="lens" aria-hidden="true"></canvas>
+        <div class="hero__copy" id="heroCopy">
+          <a class="latest" id="latest" href="#work" data-nav data-slide="0" hidden>
+            <span class="latest__dot" aria-hidden="true"></span>
+            <span class="latest__label"></span>
+            <span class="latest__title"></span>
+          </a>
+          <h1 class="hero__name" id="heroName">
+            <span class="hero__first" data-first>Shirly P.</span>
+            <span class="hero__last" data-last>Delankawala</span>
+          </h1>
+          <div class="hero__meta">
+            <p class="hero__role" data-role>Film and teledrama director and producer</p>
+            <p class="hero__pos" data-position>Board of Directors, Independent Television Network (ITN) Sri Lanka</p>
+          </div>
+          <ul class="hero__laurels" id="heroLaurels" aria-label="Headline awards"></ul>
+          <div class="hero__cta">
+            <a class="btn btn--solid" href="#work" data-nav data-magnetic>View my work</a>
+            <a class="btn btn--line" href="#about" data-nav data-magnetic>Read about me</a>
+          </div>
+        </div>
+        <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+      </div>
+      <div class="hero__flood" aria-hidden="true"></div>
+    </section>
+
+    <!-- WORK -->
+    <section class="work sec" id="work" aria-labelledby="workTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2" id="workTitle" data-focus>Work</h2>
+          <p class="head__note work__count" aria-hidden="true"><span id="slideNow">01</span><span class="work__of">/</span><span id="slideAll">12</span></p>
+        </div>
+        <div class="show" id="show" role="region" aria-roledescription="carousel" aria-label="Films and teledramas directed by Shirly P. Delankawala">
+          <div class="show__frame" id="showFrame" data-cursor="Drag">
+            <div class="show__slides" id="showSlides"></div>
+            <div class="show__leak" aria-hidden="true"></div>
+            <div class="show__marks" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="show__info">
+            <div class="show__text" id="showText" aria-live="off"></div>
+            <div class="show__nav">
+              <button class="arrow arrow--pause" id="pauseSlide" type="button" aria-pressed="false" aria-label="Pause slideshow" data-magnetic>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="i-pause"><path d="M9 6v12M15 6v12"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="i-play"><path d="M8 5.5v13l10-6.5Z"/></svg>
+              </button>
+              <button class="arrow" id="prevSlide" type="button" aria-label="Previous work" data-magnetic>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
+              </button>
+              <button class="arrow" id="nextSlide" type="button" aria-label="Next work" data-magnetic>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+          <!-- contact sheet: every work as a small frame; picking one shows it above -->
+          <ol class="sheet" id="sheet" aria-label="All works"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOGNITION -->
+    <section class="rec sec" id="recognition" aria-labelledby="recTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2" id="recTitle" data-focus>Recognition</h2>
+          <p class="head__aside" id="recSum"></p>
+        </div>
+        <ul class="laurels" id="laurels" aria-label="Headline awards"></ul>
+        <div class="record" id="record">
+          <div class="split">
+            <div class="split__label">
+              <h3 class="h3" id="recordTitle">The full record</h3>
+              <p class="split__note">Every award and nomination, production by production. Open a title to see them.</p>
+              <p class="split__key" aria-hidden="true"><span><i class="is-won"></i>Won</span><span><i></i>Nominated</span></p>
+            </div>
+            <ul class="ledger" id="awardsList" aria-labelledby="recordTitle"></ul>
+          </div>
+        </div>
+        <div class="ack" id="ack" hidden>
+          <div class="split">
+            <div class="split__label">
+              <h3 class="h3" id="ackTitle">Acknowledgements</h3>
+              <p class="split__note">Invited to judge the work of others.</p>
+            </div>
+            <ul class="acklist" id="ackList" aria-labelledby="ackTitle"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about sec" id="about" aria-labelledby="aboutTitle">
+      <div class="wrap">
+        <div class="about__grid">
+          <figure class="about__portrait" id="portrait">
+            <div class="about__print" data-tilt>
+              <div class="about__photo">
+                <img src="assets/img/portrait.webp" alt="Portrait of Shirly P. Delankawala" width="840" height="1018" loading="eager" decoding="async">
+              </div>
+              <div class="about__light" aria-hidden="true"></div>
+              <span class="about__bracket about__bracket--tl" aria-hidden="true"></span>
+              <span class="about__bracket about__bracket--br" aria-hidden="true"></span>
+            </div>
+            <figcaption><span>Shirly P. Delankawala</span><span>Colombo, Sri Lanka</span></figcaption>
+          </figure>
+          <div class="about__text">
+            <h2 class="h2" id="aboutTitle" data-focus>About</h2>
+            <div class="about__body" id="aboutBody">
+              <p>Shirly P. Delankawala has spent more than three decades in Sri Lankan drama and television.</p>
+            </div>
+            <blockquote class="quote" id="aboutQuote" data-focus>
+              <p></p>
+            </blockquote>
+          </div>
+        </div>
+        <dl class="stats" id="stats"></dl>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section class="career" id="career" aria-labelledby="careerTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2" id="careerTitle" data-focus>Career</h2>
+          <p class="head__note" id="careerHint" aria-hidden="true">Since 1988</p>
+        </div>
+      </div>
+      <div class="reel" id="reel">
+        <ol class="reel__track" id="reelTrack"></ol>
+      </div>
+    </section>
+
+    <!-- TELEVISION -->
+    <section class="tv sec" id="television" aria-labelledby="tvTitle">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2" id="tvTitle" data-focus>Television</h2>
+          <p class="head__aside" id="tvIntro"></p>
+        </div>
+        <div class="tv__body">
+          <div class="tv__guide" id="guide"></div>
+          <div class="monitor" id="monitor" aria-hidden="true">
+            <div class="monitor__screen">
+              <canvas class="monitor__static" id="monitorStatic" width="160" height="120"></canvas>
+              <div class="monitor__bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="monitor__card">
+                <p class="monitor__live"><span></span>Live</p>
+                <p class="monitor__title"></p>
+                <p class="monitor__meta"></p>
+              </div>
+              <div class="monitor__scan"></div>
+            </div>
+            <div class="monitor__base"><span>TV1</span><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- END CREDITS -->
+    <section class="roll" id="credits" aria-label="Jury service, memberships and education">
+      <div class="credits wrap" id="creditsRoll"></div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact sec" id="contact" aria-labelledby="contactTitle">
+      <div class="wrap contact__grid">
+        <div class="contact__intro">
+          <h2 class="contact__title" id="contactTitle" data-focus>Have a story worth telling?</h2>
+          <p class="contact__sub" id="contactSub">For productions, collaborations and partnerships.</p>
+          <ul class="direct" id="direct"></ul>
+        </div>
+        <form class="form" id="form" novalidate>
+          <div class="field">
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder=" " required aria-describedby="f-name-err">
+            <label for="f-name">Your name</label>
+            <p class="field__err" id="f-name-err" hidden>Please add your name.</p>
+          </div>
+          <div class="field">
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder=" " required aria-describedby="f-email-err">
+            <label for="f-email">Email address</label>
+            <p class="field__err" id="f-email-err" hidden>Please add a valid email address, such as name@example.com.</p>
+          </div>
+          <div class="field field--area">
+            <textarea id="f-msg" name="message" rows="4" placeholder=" " required aria-describedby="f-msg-err"></textarea>
+            <label for="f-msg">Tell me about your project</label>
+            <p class="field__err" id="f-msg-err" hidden>Please add a short message.</p>
+          </div>
+          <!-- left empty by people; filled in by spam robots -->
+          <input class="form__trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form__actions">
+            <button class="btn btn--solid" type="submit" data-channel="email" data-magnetic>Send by email</button>
+            <button class="btn btn--line" type="submit" data-channel="whatsapp" data-magnetic>Send on WhatsApp</button>
+          </div>
+          <p class="form__status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="sign" id="sign" aria-hidden="true">
+      <span class="sign__line">Delankawala</span>
+      <span class="sign__lit">Delankawala</span>
+    </div>
+    <div class="wrap">
+      <div class="foot__row">
+        <ul class="foot__social" id="social" aria-label="Social media"></ul>
+        <nav class="foot__nav" aria-label="Footer">
+          <a href="#work" data-nav>Work</a>
+          <a href="#recognition" data-nav>Recognition</a>
+          <a href="#about" data-nav>About</a>
+          <a href="#contact" data-nav>Contact</a>
+        </nav>
+        <button class="foot__rewind" id="rewind" type="button" data-magnetic>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 6 4 12l7 6V6Zm9 0-7 6 7 6V6Z"/></svg>
+          Rewind to top
+        </button>
+      </div>
+      <!-- the last line of the page -->
+      <div class="foot__base">
+        <p>© <span id="year">2026</span> Shirly P. Delankawala</p>
+        <p class="foot__made" id="madeBy" hidden>Website by <a target="_blank" rel="noopener"></a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <noscript>
+    <style>.leader,.iris,.cursor{display:none!important} html.js [data-focus]{opacity:1!important}</style>
+    <p class="noscript">This site uses JavaScript to show the work and awards. To get in touch, write to <a href="mailto:shirly.film@gmail.com">shirly.film@gmail.com</a>.</p>
+  </noscript>
+
+  <script src="content.js"></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
