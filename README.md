@@ -54,6 +54,7 @@ To receive messages straight to your inbox instead:
 
 1. **Publish only the website files.** The host needs `index.html`, `content.js` and the `assets` folder, nothing else. Either put those three in a new folder, or run `npm run export`, which makes a clean `publish` folder for you. Do not upload `node_modules`.
 2. **Host it for free.** The quickest route is https://app.netlify.com/drop: drag that folder onto the page and you get a live link in seconds. Cloudflare Pages and GitHub Pages also work.
+   **On Vercel**, import the whole project (not the `publish` folder). `vercel.json` already tells Vercel to run `npm run export` and serve the `publish` folder, so leave the Build Command and Output Directory in the Vercel project settings empty.
 3. **Buy a domain.** For example `shirlydelankawala.com`, or a `.lk` from the LK Domain Registry. Check availability at a registrar such as Cloudflare, Namecheap or GoDaddy.
 4. **Connect the domain** in the host's "Domain settings". The host provides the free HTTPS certificate.
 5. **Update the preview image address** in `index.html`. Make `og:image` and `twitter:image` the full URL, e.g. `https://shirlydelankawala.com/assets/img/og-image.jpg`.
