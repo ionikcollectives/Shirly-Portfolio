@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Page not found | Shirly P. Delankawala</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#18110C">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem('spd-theme'); } catch (e) {}
+      if (t !== 'day' && t !== 'night') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'day' : 'night';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <style>
+    html[data-theme="night"] { --bg: #18110C; --ink: #EADFCC; --ink-2: #B5A08A; --line: rgba(234, 223, 204, .28); --accent: #E2A05B; color-scheme: dark; }
+    html[data-theme="day"] { --bg: #E9DFCF; --ink: #2A1C13; --ink-2: #6C5543; --line: rgba(42, 28, 19, .32); --accent: #A3441C; color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 32px max(20px, 5vw);
+      background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { position: relative; text-align: center; max-width: 34rem; padding: 56px 24px; }
+    /* viewfinder corners */
+    main::before, main::after { content: ""; position: absolute; width: 22px; height: 22px; border-color: var(--ink); opacity: .4; }
+    main::before { top: 0; left: 0; border-top: 1px solid; border-left: 1px solid; }
+    main::after { bottom: 0; right: 0; border-bottom: 1px solid; border-right: 1px solid; }
+    .k { font-size: .75rem; letter-spacing: .1em; color: var(--accent); margin: 0 0 18px; }
+    h1 {
+      margin: 0; font-family: "Imbue", "Didot", "Times New Roman", serif; font-weight: 300; font-variation-settings: "opsz" 100;
+      font-size: clamp(3.2rem, 14vw, 6rem); line-height: .9; letter-spacing: -.01em;
+    }
+    p.t { margin: 20px auto 0; color: var(--ink-2); line-height: 1.6; max-width: 30ch; }
+    a {
+      display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 26px; margin-top: 32px;
+      background: var(--ink); color: var(--bg); text-decoration: none; font-size: .875rem; font-weight: 500; letter-spacing: .02em; border-radius: 2px;
+      -webkit-tap-highlight-color: transparent; transition: background-color .4s, color .4s;
+    }
+    a:hover, a:focus-visible { background: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="k">404</p>
+    <h1>This scene isn't in the cut</h1>
+    <p class="t">The page you were looking for doesn't exist, or has moved.</p>
+    <a href="/">Back to the opening</a>
+  </main>
+</body>
+</html>

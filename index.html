@@ -3,24 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Shirly P. Delankawala — Film and Teledrama Director</title>
-  <meta name="description" content="Shirly P. Delankawala is an award-winning Sri Lankan film and teledrama director and producer, and a member of the Board of Directors of the Independent Television Network (ITN).">
+  <title>Shirly P. Delankawala | Sri Lankan Film and Teledrama Director</title>
+  <meta name="description" content="Shirly P. Delankawala is an award-winning Sri Lankan film and teledrama director, known for Handawa and Olu, and a member of the ITN Board of Directors.">
+  <meta name="author" content="Shirly P. Delankawala">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#18110C">
+  <meta name="format-detection" content="telephone=no">
+  <!-- build: the page address (canonical, og:url) and the app manifest are added here by "npm run export" -->
   <meta property="og:site_name" content="Shirly P. Delankawala">
-  <meta property="og:title" content="Shirly P. Delankawala — Film and Teledrama Director">
-  <meta property="og:description" content="Award-winning Sri Lankan film and teledrama director and producer.">
+  <meta property="og:locale" content="en_GB">
   <meta property="og:type" content="profile">
-  <!-- After the domain is live, change both image addresses to the full address,
-       e.g. https://www.example.com/assets/img/og-image.jpg -->
+  <meta property="profile:first_name" content="Shirly">
+  <meta property="profile:last_name" content="Delankawala">
+  <meta property="og:title" content="Shirly P. Delankawala | Film and Teledrama Director">
+  <meta property="og:description" content="Award-winning Sri Lankan film and teledrama director and producer, Best Director at the State Television Awards, and a member of the ITN Board of Directors.">
+  <!-- "npm run export" turns these two image addresses into full web addresses -->
   <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shirly P. Delankawala, film and teledrama director">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Shirly P. Delankawala — Film and Teledrama Director">
-  <meta name="twitter:description" content="Award-winning Sri Lankan film and teledrama director and producer.">
+  <meta name="twitter:title" content="Shirly P. Delankawala | Film and Teledrama Director">
+  <meta name="twitter:description" content="Award-winning Sri Lankan film and teledrama director and producer, and a member of the ITN Board of Directors.">
   <meta name="twitter:image" content="assets/img/og-image.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2318110C'/%3E%3Cpath d='M32 10 50 42H14z' fill='none' stroke='%23EADFCC' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23E2A05B'/%3E%3C/svg%3E">
+  <meta name="twitter:image:alt" content="Shirly P. Delankawala, film and teledrama director">
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <script>
     /* Pick the saved theme, or follow the device, before anything paints. */
     (function () {
@@ -29,18 +40,26 @@
       if (t !== 'day' && t !== 'night') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'day' : 'night';
       document.documentElement.setAttribute('data-theme', t);
       document.documentElement.classList.add('js');
+      // the phone browser bar takes the colour of the page from the first frame
+      if (t === 'day') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#E9DFCF');
     })();
   </script>
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Structured data for search engines. "npm run export" rebuilds this from content.js,
+       with every production and award, so there is no need to edit it here. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "#person",
     "name": "Shirly P. Delankawala",
-    "jobTitle": "Film and Teledrama Director and Producer",
-    "nationality": "Sri Lankan",
-    "worksFor": { "@type": "Organization", "name": "Independent Television Network (ITN) Sri Lanka" },
+    "jobTitle": "Film and teledrama director and producer",
+    "description": "Award-winning Sri Lankan film and teledrama director and producer, and a member of the Board of Directors of the Independent Television Network (ITN).",
+    "image": "assets/img/portrait.webp",
+    "nationality": { "@type": "Country", "name": "Sri Lanka" },
+    "homeLocation": { "@type": "Place", "name": "Colombo, Sri Lanka" },
+    "affiliation": { "@type": "Organization", "name": "Independent Television Network (ITN)" },
     "award": [
       "Best Director, State Television Awards 2009 (Handawa)",
       "Best TV Series, State Television Awards 2009 (Handawa)",
@@ -253,8 +272,9 @@
         </div>
       </div>
       <div class="reel" id="reel">
-        <ol class="reel__track" id="reelTrack"></ol>
+        <ol class="reel__track" id="reelTrack" aria-label="Career, oldest to newest"></ol>
       </div>
+      <div class="reel__meter" aria-hidden="true"><i></i></div>
     </section>
 
     <!-- TELEVISION -->

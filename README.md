@@ -8,9 +8,11 @@ content.js          ALL the words, works, career, awards and contact details  �
 assets/css/         style.css (colours, layout) + fonts.css (fonts, embedded)
 assets/js/app.js    the built script (don't edit by hand)
 assets/img/         portrait.webp, og-image.jpg (link preview), works/ (stills)
-assets/fonts/       original font files (Imbue, Hanken Grotesk); the page uses fonts.css
+assets/icons/       browser tab and home-screen icons
+assets/fonts/       font files (Imbue, Hanken Grotesk); used online, fonts.css covers opening from a folder
+favicon.ico, site.webmanifest, 404.html   icon, home-screen details, "page not found" page
 src/                source code for app.js (only for a developer)
-scripts/            helper for making a clean folder to publish (only for a developer)
+scripts/            makes the clean, search-ready folder to publish (only for a developer)
 ```
 
 The page runs in this order: opening screen, Work, Recognition, About, Career, Television, end credits, Contact.
@@ -24,6 +26,7 @@ To preview it as it will run online, open a terminal in this folder, run `npm in
 
 Open `content.js` in any text editor (TextEdit in plain-text mode, VS Code or Notepad). Change the words between the quotes, save, and refresh the browser.
 
+- **Website address:** once the domain is live, put it in `siteUrl` at the top, e.g. `siteUrl: "https://shirlydelankawala.com"`. Search engines and link previews use it. On Vercel it can stay empty until then: Vercel's own address is used.
 - **Change text:** edit anything inside `"…"`. Keep the quotes and the commas between items.
 - **The numbers update themselves.** Years in drama, productions, episodes and awards are counted from `content.js`, so they stay correct as you add work.
 - **Add a work:** copy one `{ title: … }` block in `works` and paste it anywhere in the list. Works are put in date order automatically, newest first; a series that ran 2015–2019 counts as 2019. Set `type` ("Feature film" or "Teledrama"), `years` (`[2026]`, or `[2015, 2019]` for a long-running series), `channel` and `episodes`. It appears in the slideshow, on the contact sheet under it and in the award record automatically.
@@ -52,12 +55,12 @@ To receive messages straight to your inbox instead:
 
 ## Launch (target: 21 December)
 
-1. **Publish only the website files.** The host needs `index.html`, `content.js` and the `assets` folder, nothing else. Either put those three in a new folder, or run `npm run export`, which makes a clean `publish` folder for you. Do not upload `node_modules`.
+1. **Publish only the website files.** Run `npm run export`: it makes a clean, search-ready `publish` folder (see *Search engines* below). Upload that folder, never `node_modules`. In a hurry without a terminal, `index.html`, `content.js`, `assets`, `favicon.ico`, `site.webmanifest` and `404.html` in a new folder also work, without the search extras.
 2. **Host it for free.** The quickest route is https://app.netlify.com/drop: drag that folder onto the page and you get a live link in seconds. Cloudflare Pages and GitHub Pages also work.
    **On Vercel**, import the whole project (not the `publish` folder). `vercel.json` already tells Vercel to run `npm run export` and serve the `publish` folder, so leave the Build Command and Output Directory in the Vercel project settings empty.
 3. **Buy a domain.** For example `shirlydelankawala.com`, or a `.lk` from the LK Domain Registry. Check availability at a registrar such as Cloudflare, Namecheap or GoDaddy.
 4. **Connect the domain** in the host's "Domain settings". The host provides the free HTTPS certificate.
-5. **Update the preview image address** in `index.html`. Make `og:image` and `twitter:image` the full URL, e.g. `https://shirlydelankawala.com/assets/img/og-image.jpg`.
+5. **Add the address** to `siteUrl` in `content.js` and publish again. The link-preview image, the canonical link and the sitemap all follow from it.
 6. **Updating later:** edit `content.js` and publish the folder again, or connect the host to a GitHub repository so every saved change goes live.
 
 ### Before launch checklist
@@ -68,7 +71,17 @@ To receive messages straight to your inbox instead:
 - [ ] Hanthanata Ahenwada details added (note and still).
 - [ ] Stills added for the key works (optional, but recommended).
 - [ ] Studio portrait (recommended).
-- [ ] `og:image` and `twitter:image` changed to the full web address.
+- [ ] `siteUrl` in `content.js` set to the live address.
+- [ ] After launch: add the site to Google Search Console and submit `sitemap.xml`.
+
+## Search engines
+`npm run export` (which Vercel runs on every deploy) prepares the page for search engines and link previews:
+- the page address (canonical link), and full addresses for the WhatsApp / Facebook / LinkedIn preview image;
+- structured data built from `content.js`: the person, his headline awards, and every production with its awards, so search engines can connect the titles to his name;
+- the About text written into the page itself, so it is read even without running scripts;
+- `robots.txt` and `sitemap.xml` (the sitemap once `siteUrl` or the Vercel address is known);
+- fonts loaded as files and style/script links fingerprinted, so the page paints sooner and visitors never get a stale copy.
+The title and description are at the top of `index.html`.
 
 ## Features
 - Night and day modes: follows the device and remembers the visitor's choice.
@@ -82,7 +95,8 @@ To receive messages straight to your inbox instead:
 - Rolling counters, a career film strip that wraps over a drum in 3D, and a vintage monitor that scans through the television programmes.
 - Autofocus cursor, and a spotlit signature in the footer.
 - Optional sound: off by default, synthesised, no audio files.
-- Smooth scrolling, works on phones and tablets, usable by keyboard, and respects reduced motion (the film strip becomes a row you scroll sideways).
+- Smooth scrolling, usable by keyboard, and respects reduced motion (the film strip becomes a row you scroll sideways).
+- Made for phones as well as large screens: the slideshow arrows sit under the picture where a thumb reaches them, the contact sheet and career film strip are rows you swipe (the strip shows how far along you are), buttons answer a tap, every target is finger-sized, no text is smaller than 12px, and nothing hides under the notch when a phone is held sideways.
 
 ## For a developer
 Only needed if you change files in `src/`:

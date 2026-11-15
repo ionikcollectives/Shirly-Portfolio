@@ -66,7 +66,11 @@ export function createShow(root, works, { gsap, reduced, onAwards }) {
       </div>`;
   };
 
-  function mark(i) {
+  // when someone is swiping through the rail of frames themselves, autoplay leaves it where they put it
+  let railTouched = -1e9;
+  ["pointerdown", "wheel", "touchmove"].forEach(t => sheet.addEventListener(t, () => { railTouched = performance.now(); }, { passive: true }));
+
+  function mark(i, byUser = true) {
     cells.forEach((c, j) => {
       c.classList.toggle('is-active', j === i);
       c.setAttribute('aria-current', j === i ? 'true' : 'false');
@@ -74,7 +78,7 @@ export function createShow(root, works, { gsap, reduced, onAwards }) {
     });
     nowEl.textContent = pad(i + 1);
     // keep the marked frame in view when the sheet is a rail that scrolls sideways (phones)
-    if (sheet.scrollWidth > sheet.clientWidth + 4) {
+    if (sheet.scrollWidth > sheet.clientWidth + 4 && (byUser || performance.now() - railTouched > 6000)) {
       const li = cells[i].parentElement;
       sheet.scrollTo({ left: li.offsetLeft - (sheet.clientWidth - li.offsetWidth) / 2, behavior: reduced ? 'auto' : 'smooth' });
     }
@@ -134,7 +138,7 @@ export function createShow(root, works, { gsap, reduced, onAwards }) {
     const fromChars = from.querySelectorAll('.slide__title .ch');
     const toYear = to.querySelector('.slide__year');
     index = i;
-    mark(i);
+    mark(i, !fromAuto);
 
     from.classList.add('is-leaving');
     from.classList.remove('is-active');

@@ -17,6 +17,11 @@
    ========================================================================== */
 
 window.SITE = {
+  /* The website's address once it is live, e.g. "https://shirlydelankawala.com".
+     Search engines and link previews (WhatsApp, Facebook) use it. Leave it ""
+     on Vercel and the address Vercel gives the site is used instead.         */
+  siteUrl: "",
+
   name: { first: "Shirly P.", last: "Delankawala" },
   role: "Film and teledrama director and producer",
   position: "Board of Directors, Independent Television Network (ITN) Sri Lanka",

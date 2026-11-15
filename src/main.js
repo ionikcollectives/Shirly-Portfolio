@@ -526,6 +526,7 @@ function boot() {
   const behind = [$('main'), $('.foot')];
   const setMenu = open => {
     menu.hidden = !open;
+    root.classList.toggle('is-menu-open', open);       // the page behind stays still, with or without smooth scroll
     menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     behind.forEach(el => { el.inert = open; });      // keep focus in the header and the menu
@@ -590,6 +591,9 @@ function boot() {
     $$('.hl').forEach(el => el.classList.add('is-in'));
   }
   signature();
+  const meter = reelMeter();
+  // iOS only shows :active (the pressed look on touch) once the page listens for touches
+  document.addEventListener('touchstart', () => {}, { passive: true });
 
   // active nav link (created after the pinned scenes so positions include pin spacing)
   ['work', 'recognition', 'about', 'contact'].forEach(id => {
@@ -619,7 +623,7 @@ function boot() {
   }
 
   formSetup();
-  const settle = () => { lens?.relayout(); ScrollTrigger.refresh(); measure(); };
+  const settle = () => { lens?.relayout(); ScrollTrigger.refresh(); measure(); meter?.(); };
   document.fonts?.ready.then(settle);
   addEventListener('load', settle);
 }
@@ -748,7 +752,9 @@ function scrollScenes() {
     return () => { tw.scrollTrigger?.kill(); tw.kill(); gsap.set(track, { clearProps: 'transform' }); frames.forEach(f => (f.style.transform = '')); };
   });
   mm.add('(max-width: 760px)', () => {
-    $$('.frame:not(.frame--leader)').forEach(f => gsap.from(f, { opacity: 0, y: 40, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: f, start: 'top 88%' } }));
+    // phones: the frames sit side by side in a row you swipe; they slide in together, one after another
+    const tw = gsap.from('.frame:not(.frame--leader)', { opacity: 0, x: 60, duration: 1.2, stagger: .08, ease: 'expo.out', scrollTrigger: { trigger: '#reel', start: 'top 85%' } });
+    return () => { tw.scrollTrigger?.kill(); tw.kill(); gsap.set('.frame', { clearProps: 'opacity,transform' }); };
   });
 
   // television: the titles tune in, the monitor swings round
@@ -770,6 +776,30 @@ function scrollScenes() {
 
   // footer signature drifts up
   gsap.fromTo('#sign', { yPercent: 30 }, { yPercent: 0, ease: 'none', scrollTrigger: { trigger: '.foot', start: 'top bottom', end: 'bottom bottom', scrub: true } });
+}
+
+/* ------------------------------------------------------------------ career strip meter */
+// When the film strip is a row you swipe (phones, or reduced motion), a hairline
+// under it shows how much of it there is and how far along you are.
+function reelMeter() {
+  const reel = $('#reel'), bar = $('.reel__meter');
+  if (!reel || !bar) return null;
+  let raf = 0;
+  const update = () => {
+    raf = 0;
+    const sw = reel.scrollWidth, cw = reel.clientWidth;
+    const can = sw > cw + 4 && getComputedStyle(reel).overflowX !== 'hidden';
+    reel.classList.toggle('is-scrollable', can);
+    if (!can) return;
+    const w = cw / sw;
+    bar.style.setProperty('--w', (w * 100).toFixed(2) + '%');
+    bar.style.setProperty('--x', ((reel.scrollLeft / sw / w) * 100).toFixed(2) + '%');
+  };
+  const queue = () => { if (!raf) raf = requestAnimationFrame(update); };
+  reel.addEventListener('scroll', queue, { passive: true });
+  addEventListener('resize', queue);
+  update();
+  return update;
 }
 
 /* ------------------------------------------------------------------ footer signature */
